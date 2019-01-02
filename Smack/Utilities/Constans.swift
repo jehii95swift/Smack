@@ -8,7 +8,20 @@
 
 import Foundation
 
+typealias CompletionHandler = (_ Success: Bool) -> ()
+
+//url constantes
+
+let BASE_URL = "https://git.heroku.com/chatychatj.git/v1/"
+let URL_REGISTER = "\(BASE_URL)account/register"
+
 //segues
 let TO_LOGIN = "toLogin"
 let TO_CREATEACCOUNT = "toCreateAccount"
 let UNWIND = "unwindToChannel"
+
+// User Defaults
+
+let TOKEN_KEY = "token"
+let LOGGED_IN_KEY = "loggedIn"
+let USER_EMAIL = "userEmail"
