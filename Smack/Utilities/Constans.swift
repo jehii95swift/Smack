@@ -8,11 +8,11 @@
 
 import Foundation
 
-typealias CompletionHandler = (_ Success: Bool) -> ()
+typealias CompletionHandler = (_ x: Bool) -> ()
 
 //url constantes
 
-let BASE_URL = "https://git.heroku.com/chatychatj.git/v1/"
+let BASE_URL = "https://chattychatjb.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
 
 //segues

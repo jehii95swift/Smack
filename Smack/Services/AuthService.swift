@@ -43,18 +43,22 @@ class AuthService {
     func registrerUser(email: String , password: String, completion:@escaping CompletionHandler){
         
         let lowerCaseEmail = email.lowercased()
+        
         let header = ["Content-type":"application/json; charset=utf-8"]
 
-        let body: [String: Any] = ["email":lowerCaseEmail , "password":password]
-        
-        Alamofire.request(URL_REGISTER, method: .post, parameters: body,
-                          encoding: JSONEncoding.default, headers: header) .responseString{ (response) in
-                            if response.result.error == nil {
-                                completion(true)
-                            }else {
-                                completion(false)
-                                debugPrint(response.result.error as Any)
-                            }
+        let body: [String: Any] = [
+            "email":lowerCaseEmail,
+            "password":password]
+        let url = URL_REGISTER
+        Alamofire.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header) .responseString{ (response) in
+                let status = response.response?.statusCode
+                    switch status {
+                    case 200:
+                        completion(true)
+                    default:
+                        completion(false)
+                        debugPrint(response.result.error as Any)
+                    }
                             
         }
 
