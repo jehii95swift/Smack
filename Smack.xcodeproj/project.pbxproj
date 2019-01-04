@@ -19,6 +19,7 @@
 		A50291B221D5AAB20087F3EA /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50291B121D5AAB20087F3EA /* Constans.swift */; };
 		A50291B421D5B9030087F3EA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50291B321D5B9030087F3EA /* LoginVC.swift */; };
 		A5187B2621D6494C00CDD626 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5187B2521D6494C00CDD626 /* CreateAccountVC.swift */; };
+		A59ADED921DFDA9500AA70F7 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59ADED821DFDA9500AA70F7 /* UserDataService.swift */; };
 		A5F30F5021DD05BC0042BEF9 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F30F4F21DD05BC0042BEF9 /* AuthService.swift */; };
 		A5F30F5221DD85F50042BEF9 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F30F5121DD85F50042BEF9 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		A50291B121D5AAB20087F3EA /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		A50291B321D5B9030087F3EA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A5187B2521D6494C00CDD626 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		A59ADED821DFDA9500AA70F7 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		A5F30F4F21DD05BC0042BEF9 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A5F30F5121DD85F50042BEF9 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F30F4F21DD05BC0042BEF9 /* AuthService.swift */,
+				A59ADED821DFDA9500AA70F7 /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				A502918D21D572EA0087F3EA /* ChannelVC.swift in Sources */,
 				A5F30F5221DD85F50042BEF9 /* RoundedButton.swift in Sources */,
 				A502918B21D572860087F3EA /* ChatVC.swift in Sources */,
+				A59ADED921DFDA9500AA70F7 /* UserDataService.swift in Sources */,
 				A5187B2621D6494C00CDD626 /* CreateAccountVC.swift in Sources */,
 				A5F30F5021DD05BC0042BEF9 /* AuthService.swift in Sources */,
 				A50291B421D5B9030087F3EA /* LoginVC.swift in Sources */,
