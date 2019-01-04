@@ -17,7 +17,6 @@ class CreateAccountVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     @IBAction func createAccntPressed(_ sender: Any) {
@@ -25,12 +24,20 @@ class CreateAccountVC: UIViewController {
             }
         guard let pass = passTxt.text , passTxt.text != "" else { return
             }
-        AuthService.instance.registrerUser(email: email, password: pass, completion: { success in
-            if success {
-                print("registered user!")
+    
+        
+        AuthService.instance.registerUser(email: email, password: pass) { (success) in
+                    if (success) {
+            AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
+                    if success {
+                        print("logged in user!", AuthService.instance.authToken)
+                    }
+                })
             }
-        })
+        }
     }
+    
+    
     @IBAction func pickAvatarPressed(_ sender: Any) {
     }
     
@@ -39,4 +46,9 @@ class CreateAccountVC: UIViewController {
     @IBAction func closePressed(_ sender: Any) {
         performSegue(withIdentifier: UNWIND, sender: nil)
     }
-}
+    
+    
+    
+    
+ }
+
