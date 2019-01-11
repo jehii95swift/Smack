@@ -26,7 +26,7 @@
                   moduleName = "Smack"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jenifer/Desktop/Smack/Smack/Services/AuthService.swift"
-                  timestampString = "568336838.478551"
+                  timestampString = "568848208.689074"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "114"
@@ -41,11 +41,11 @@
                   moduleName = "Smack"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jenifer/Desktop/Smack/Smack/Services/AuthService.swift"
-                  timestampString = "568336838.482933"
+                  timestampString = "568848208.693805"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
                   offsetFromSymbolStart = "53">
                </Location>
             </Locations>

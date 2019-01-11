@@ -115,7 +115,7 @@
                                     <action selector="loginBtnPressed:" destination="lXN-wW-dxp" eventType="touchUpInside" id="yxh-NE-FKg"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="V6a-b7-wGV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="V6a-b7-wGV" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="ZvL-er-93R"/>
@@ -412,7 +412,7 @@
                                 <color key="textColor" red="0.25882352939999997" green="0.32156862749999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="rB3-Cr-OOg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="rB3-Cr-OOg" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="302" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="kmB-UT-fhd"/>
@@ -434,11 +434,16 @@
                                     <action selector="pickBGColorPressed:" destination="J7G-QY-O0W" eventType="touchUpInside" id="uw1-8H-7l1"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4bv-Ct-rJb">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.32156862749999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MCS-qu-1Yd" firstAttribute="centerX" secondItem="h5p-0t-Der" secondAttribute="centerX" id="05R-wO-Rtk"/>
                             <constraint firstItem="rB3-Cr-OOg" firstAttribute="top" secondItem="PUE-6b-z1E" secondAttribute="bottom" constant="40" id="1Op-J0-I0f"/>
+                            <constraint firstItem="4bv-Ct-rJb" firstAttribute="centerX" secondItem="h5p-0t-Der" secondAttribute="centerX" id="71q-fN-u5i"/>
                             <constraint firstItem="PUE-6b-z1E" firstAttribute="top" secondItem="Csw-hf-7om" secondAttribute="bottom" constant="40" id="9eR-V2-ZXG"/>
                             <constraint firstItem="7Qc-ct-67C" firstAttribute="centerX" secondItem="h5p-0t-Der" secondAttribute="centerX" id="DBg-GD-jjQ"/>
                             <constraint firstItem="7Qc-ct-67C" firstAttribute="top" secondItem="rB3-Cr-OOg" secondAttribute="top" id="GAq-Of-d3e"/>
@@ -446,6 +451,7 @@
                             <constraint firstItem="Mf4-DF-kNW" firstAttribute="top" secondItem="7Qc-ct-67C" secondAttribute="bottom" constant="4" id="PKm-hj-FSN"/>
                             <constraint firstItem="rB3-Cr-OOg" firstAttribute="centerX" secondItem="h5p-0t-Der" secondAttribute="centerX" id="Rik-4c-RpV"/>
                             <constraint firstItem="Mf4-DF-kNW" firstAttribute="centerX" secondItem="h5p-0t-Der" secondAttribute="centerX" id="Sub-sk-6Th"/>
+                            <constraint firstItem="4bv-Ct-rJb" firstAttribute="centerY" secondItem="h5p-0t-Der" secondAttribute="centerY" constant="-100" id="UIe-dE-9eF"/>
                             <constraint firstItem="PUE-6b-z1E" firstAttribute="centerX" secondItem="h5p-0t-Der" secondAttribute="centerX" id="UZx-vb-bSt"/>
                             <constraint firstItem="oDK-Wg-RBI" firstAttribute="bottom" secondItem="MCS-qu-1Yd" secondAttribute="bottom" constant="20" id="ZVa-dp-Gu4"/>
                             <constraint firstItem="h1t-xj-JYd" firstAttribute="top" secondItem="oDK-Wg-RBI" secondAttribute="top" constant="8" id="cCh-Bp-3hd"/>
@@ -458,6 +464,7 @@
                     <connections>
                         <outlet property="emailTxt" destination="bNR-pp-UhX" id="82k-ja-Pa2"/>
                         <outlet property="passTxt" destination="6FD-wf-ddm" id="BRd-Hu-dcd"/>
+                        <outlet property="spinner" destination="4bv-Ct-rJb" id="Slm-PH-PgC"/>
                         <outlet property="userImg" destination="rB3-Cr-OOg" id="qQk-9G-45g"/>
                         <outlet property="usernameTxt" destination="JbZ-b0-taf" id="92H-XN-EyZ"/>
                         <segue destination="3N6-gi-goR" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="zRb-A9-CLa"/>
@@ -557,7 +564,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkb-Pq-nsX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="-247.82608695652175"/>
+            <point key="canvasLocation" x="2932" y="-257"/>
         </scene>
     </scenes>
     <resources>
