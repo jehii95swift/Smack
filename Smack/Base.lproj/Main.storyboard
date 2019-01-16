@@ -279,7 +279,14 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginPressed:" destination="2W0-Wg-Q2H" eventType="touchUpInside" id="vrx-yr-xve"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tAx-h0-6M8">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.32156862749999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -288,8 +295,10 @@
                             <constraint firstItem="c83-vI-Ssa" firstAttribute="top" secondItem="id5-BE-xLY" secondAttribute="top" constant="8" id="JxA-TU-TcD"/>
                             <constraint firstItem="daK-iD-6mo" firstAttribute="centerX" secondItem="JTL-Dl-MFP" secondAttribute="centerX" id="Nng-Sx-k2O"/>
                             <constraint firstItem="4Mn-Pb-iQH" firstAttribute="top" secondItem="id5-BE-xLY" secondAttribute="top" constant="60" id="OXI-GL-TDd"/>
+                            <constraint firstItem="tAx-h0-6M8" firstAttribute="centerY" secondItem="JTL-Dl-MFP" secondAttribute="centerY" constant="-100" id="RrD-jd-bVO"/>
                             <constraint firstItem="4Mn-Pb-iQH" firstAttribute="centerX" secondItem="JTL-Dl-MFP" secondAttribute="centerX" id="bPq-o1-8Wl"/>
                             <constraint firstItem="pOW-mU-iuw" firstAttribute="top" secondItem="4Mn-Pb-iQH" secondAttribute="bottom" constant="40" id="fPD-sc-c1w"/>
+                            <constraint firstItem="tAx-h0-6M8" firstAttribute="centerX" secondItem="JTL-Dl-MFP" secondAttribute="centerX" id="pA4-Su-hti"/>
                             <constraint firstItem="STl-62-jjU" firstAttribute="top" secondItem="pOW-mU-iuw" secondAttribute="bottom" constant="40" id="u3M-Vh-2Bg"/>
                             <constraint firstItem="daK-iD-6mo" firstAttribute="top" secondItem="STl-62-jjU" secondAttribute="bottom" id="ubb-g1-bBx"/>
                             <constraint firstItem="STl-62-jjU" firstAttribute="centerX" secondItem="JTL-Dl-MFP" secondAttribute="centerX" id="wc0-f7-eGB"/>
@@ -297,6 +306,9 @@
                         <viewLayoutGuide key="safeArea" id="id5-BE-xLY"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTxt" destination="Omt-Ci-1xm" id="OZW-5w-jS5"/>
+                        <outlet property="spinner" destination="tAx-h0-6M8" id="V23-wG-iO3"/>
+                        <outlet property="userNameTxt" destination="8I9-9b-YFS" id="vE3-36-hHM"/>
                         <segue destination="J7G-QY-O0W" kind="show" identifier="toCreateAccount" id="bbB-bP-HVj"/>
                     </connections>
                 </viewController>

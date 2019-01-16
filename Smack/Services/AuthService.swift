@@ -63,7 +63,6 @@ class AuthService {
             }
         }
     }
-    
     func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
         
         let lowerCaseEmail = email.lowercased()
@@ -97,43 +96,55 @@ class AuthService {
     }
 
 
-func createUser(name: String, email: String,avatarName: String,avatarColor: String,completion: @escaping CompletionHandler){
-    let lowerCaseEmail = email.lowercased()
+    func createUser(name: String, email: String,avatarName: String,avatarColor: String,completion: @escaping CompletionHandler){
+        let lowerCaseEmail = email.lowercased()
     
-    let body: [String: Any] = [
+        let body: [String: Any] = [
         "name":name,
         "email": lowerCaseEmail,
         "avatarName":avatarName,
         "avatarColor":avatarColor
     ]
-    let header = [
-        "Authorization":"Bearer \(AuthService.instance.authToken)",
-        "Content-Type":"application/json; charset=utf-8"
-    ]
     
-    Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default , headers: header).responseJSON { (response)  in
+    
+        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default , headers: BEARER_HEADER).responseJSON { (response)  in
                 if response.result.error == nil {
-            guard let data = response.data else {return}
-            if let json = response.result.value as? Dictionary<String,Any> {
+            self.setUserInfo(response: response)
+                completion(true)
+            
+        }else {
+            completion(false)
+            debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func findUserByEmail(completion: @escaping CompletionHandler) {
+        
+        Alamofire.request("\(URL_USER_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { response in
+            
+            if response.result.error == nil {
+                self.setUserInfo(response: response)
+                    completion(true)
+                
+            }else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func setUserInfo(response: (DataResponse<Any>)) {
+        guard response.data != nil else {return}
+        if let json = response.result.value as? Dictionary<String,Any> {
             let id = json["_id"] as! String
             let color = json["avatarColor"] as! String
             let avatarName = json["avatarName"] as! String
             let email = json["email"] as! String
             let name = json["name"] as! String
-                UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
-                completion(true)
-            }
             
-            
-        }else {
-            completion(false)
-            debugPrint(response.result.error as Any)
+            UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
         }
     }
     
-    
-    
-    
-    
-}
 }

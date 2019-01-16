@@ -40,7 +40,7 @@
                                     <color key="textColor" red="0.25882352939999997" green="0.32156862749999998" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="xSN-tS-SZm">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="xSN-tS-SZm" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                     <rect key="frame" x="13.5" y="39.5" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="RGf-II-QTT"/>

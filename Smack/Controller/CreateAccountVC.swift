@@ -83,6 +83,7 @@ class CreateAccountVC: UIViewController {
         self.userImg.backgroundColor = self.bgColor
         }
     }
+    
     @IBAction func closePressed(_ sender: Any) {
         performSegue(withIdentifier: UNWIND, sender: nil)
     }
@@ -100,7 +101,4 @@ class CreateAccountVC: UIViewController {
     @objc func handleTap() {
         view.endEditing(true)
     }
-    
-    
  }
-
