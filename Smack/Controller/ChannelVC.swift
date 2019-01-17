@@ -32,9 +32,11 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupUserInfo()
     }
     @IBAction func addChannelPressed(_ sender: Any) {
-        let addChannel = AddChannelVC()
-        addChannel.modalPresentationStyle = .custom
-        present(addChannel, animated: true, completion: nil)
+        if AuthService.instance.isLoggedIn {
+         let addChannel = AddChannelVC()
+         addChannel.modalPresentationStyle = .custom
+         present(addChannel, animated: true, completion: nil)
+        }
     }
     @IBAction func loginBtnPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
@@ -58,6 +60,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             loginBtn.setTitle("login", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
             userImg.backgroundColor = UIColor.clear
+            tableView.reloadData()
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
