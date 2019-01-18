@@ -24,10 +24,14 @@ class MessageService {
                 
                 do {
                     self.channels = try JSONDecoder().decode([Channel].self, from: data)
+                    
                 }catch let error {
                     debugPrint(error as Any)
                 }
-                print(self.channels)            }
+                NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
+                print(self.channels)
+                
+            }
         }
     }
     func clearChannels() {

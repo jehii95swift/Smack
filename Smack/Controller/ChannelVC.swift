@@ -21,6 +21,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
         
         SocketService.instance.getChannel { (success) in
             if success {
@@ -45,12 +46,14 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             present(profile, animated: true, completion: nil)
         }else {
         performSegue(withIdentifier: TO_LOGIN, sender: nil)
-    }
+        }
     }
     @objc func userDataDidChange(_ notif: Notification) {
         setupUserInfo()
     }
-    
+    @objc func channelsLoaded(_ notif: Notification) {
+        tableView.reloadData()
+    }
     func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
