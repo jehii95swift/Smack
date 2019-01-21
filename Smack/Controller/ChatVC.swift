@@ -17,7 +17,9 @@ class ChatVC: UIViewController {
     @IBOutlet weak var messageTxtBox: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.bindToKeyboard()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
+        view.addGestureRecognizer(tap)
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
@@ -44,6 +46,9 @@ class ChatVC: UIViewController {
     @objc func channelSelected(_ notif: Notification) {
         updateWithChannel()
         
+    }
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     func updateWithChannel() {
         let  channelName = MessageService.instance.selectedChannel?.name
