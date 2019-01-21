@@ -13,6 +13,8 @@ class ChatVC: UIViewController {
     @IBOutlet weak var menuBtn: UIButton!
     
     @IBOutlet weak var channelNameLbl: UILabel!
+    
+    @IBOutlet weak var messageTxtBox: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +52,8 @@ class ChatVC: UIViewController {
         
     }
     
+    @IBAction func sendMsgPressed(_ sender: Any) {
+    }
     
     func onLoginGetMessages() {
         MessageService.instance.findAllChannel { (success) in
@@ -57,7 +61,7 @@ class ChatVC: UIViewController {
                 if MessageService.instance.channels.count > 0 {
                     MessageService.instance.selectedChannel = MessageService.instance.channels[0]
                     self.updateWithChannel()
-                }else {
+                } else {
                     self.channelNameLbl.text = "No channels yet!"
                 }
                 

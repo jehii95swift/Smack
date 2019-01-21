@@ -25,9 +25,11 @@ class MessageService {
                 
                 do {
                     self.channels = try JSONDecoder().decode([Channel].self, from: data)
+                    completion(true)
                     
                 }catch let error {
                     debugPrint(error as Any)
+                    completion(false)
                 }
                 NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
                 print(self.channels)
@@ -43,6 +45,7 @@ class MessageService {
                         
                     do {
                         self.messages = try JSONDecoder().decode([Message].self, from: data)
+                        print("asd")
                         
                     }catch let error {
                             debugPrint(error as Any)

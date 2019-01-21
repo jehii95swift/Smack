@@ -18,14 +18,10 @@ class SocketService: NSObject {
     }
     let manager = SocketManager(socketURL: URL(string: BASE_URL)!, config: [.log(true), .compress])
    
-    
-    
     func establishConnection() {
         manager.defaultSocket.connect()
         
     }
-    
-    
     
     func closeConnection() {
         manager.defaultSocket.disconnect()
@@ -39,6 +35,7 @@ class SocketService: NSObject {
         completion(true)
         
     }
+    
     func getChannel(completion: @escaping CompletionHandler) {
         
         manager.defaultSocket.on("channelCreated") { (dataArray, ack) in

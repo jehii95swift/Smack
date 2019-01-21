@@ -20,7 +20,8 @@ class AvatarCell: UICollectionViewCell {
         super.awakeFromNib()
         setUpView()
     }
-    func configureCell(index: Int, type: AvatarType) {
+    
+    public func configureCell(index: Int, type: AvatarType) {
         if type == AvatarType.dark {
             avatarImg.image = UIImage(named: "dark\(index)")
             self.layer.backgroundColor = UIColor.lightGray.cgColor
@@ -30,9 +31,12 @@ class AvatarCell: UICollectionViewCell {
         }
     }
     
-    func setUpView () {
+    private func setUpView () {
         self.layer.backgroundColor = UIColor.lightGray.cgColor
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
+        
+    
     }
+    
 }
