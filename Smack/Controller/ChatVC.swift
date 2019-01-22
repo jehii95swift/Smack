@@ -10,10 +10,15 @@ import UIKit
 
 class ChatVC: UIViewController , UITableViewDelegate ,UITableViewDataSource {
 
+    @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var channelNameLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTxtBox: UITextField!
+    
+    //Variables
+    var isTyping = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.bindToKeyboard()
@@ -23,6 +28,7 @@ class ChatVC: UIViewController , UITableViewDelegate ,UITableViewDataSource {
         //mainStory selecciono el text file de msg y pongo 0 lineas con esta especificacion en controler para que deje ver mensajes largos
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        sendBtn.isHidden = true
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
         view.addGestureRecognizer(tap)
@@ -71,8 +77,20 @@ class ChatVC: UIViewController , UITableViewDelegate ,UITableViewDataSource {
         let  channelName = MessageService.instance.selectedChannel?.name
         channelNameLbl.text = channelName
         getMessages()
-        
     }
+    
+    @IBAction func messageBoxEditing(_ sender: Any) {
+        if messageTxtBox.text == "" {
+            isTyping = false
+            sendBtn.isHidden = true
+        } else {
+            if isTyping == false {
+                sendBtn.isHidden = false
+            }
+            isTyping = true
+        }
+    }
+    
     
     @IBAction func sendMsgPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
@@ -86,8 +104,7 @@ class ChatVC: UIViewController , UITableViewDelegate ,UITableViewDataSource {
                 }
             })
         }
-    }
-    
+}
     func onLoginGetMessages() {
         MessageService.instance.findAllChannel { (success) in
             if success {
@@ -100,7 +117,7 @@ class ChatVC: UIViewController , UITableViewDelegate ,UITableViewDataSource {
                 
             }
         }
-    }
+}
     func getMessages() {
         guard let channelId = MessageService.instance.selectedChannel?._id else { return }
         MessageService.instance.findAllMessageForChannel (channelId: channelId) { (success) in
