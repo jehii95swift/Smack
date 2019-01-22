@@ -14,7 +14,11 @@ class MessageService {
     static let instance = MessageService()
     
     var channels = [Channel]()
-    var messages = [Message]()
+    var messages = [Message]() {
+        didSet {
+            print("dede")
+        }
+    }
     var selectedChannel : Channel?
     
     func findAllChannel(completion: @escaping CompletionHandler) {
@@ -46,6 +50,7 @@ class MessageService {
                     do {
                         self.messages = try JSONDecoder().decode([Message].self, from: data)
                         print("asd")
+                        completion(true)
                         
                     }catch let error {
                             debugPrint(error as Any)
