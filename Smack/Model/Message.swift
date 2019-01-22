@@ -18,7 +18,7 @@ struct Message : Decodable {
     public private(set) var timeStamp: String
     public private(set) var __v: Int!
     
-    init(messageBody: String, channelId: String, id: String,userName: String,userAvatar:String,userAvatarColor:String, _id: String, timeStamp:String) {
+    init(messageBody: String, channelId: String, id: String,userName: String,userAvatar:String,userAvatarColor:String, timeStamp:String) {
         
         self.messageBody = messageBody
         self.userName = userName
