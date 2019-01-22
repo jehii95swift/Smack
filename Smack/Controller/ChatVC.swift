@@ -57,6 +57,7 @@ class ChatVC: UIViewController , UITableViewDelegate ,UITableViewDataSource {
             onLoginGetMessages()
         }else {
             channelNameLbl.text = "plase log In"
+            tableView.reloadData()
             }
         }
     @objc func channelSelected(_ notif: Notification) {
